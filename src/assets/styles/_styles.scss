@@ -1,0 +1,234 @@
+@import 'colors';
+
+//loader
+
+.loader-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1021;
+  &__content {
+    background: $secondary;
+    padding: 10px;
+    opacity: 1;
+    border-radius: 5px;
+  }
+}
+
+//nav scss
+
+.navbar-main {
+  background: $secondary-light;
+  position: relative;
+  .container {
+    .navbar-brand {
+      img {
+        height: 40px;
+        @media only screen and (max-width: 500px) {
+          height: 30px;
+        }
+      }
+    }
+    .navbar-collapse {
+      .navbar-nav {
+        a:not(.dropdown-toggle):not(.dropdown-item) {
+          color: $primary;
+          font-weight: bold;
+          text-transform: uppercase;
+          font-size: 0.88rem;
+          padding-left: 0.88rem;
+          padding-right: 0.88rem;
+          position: relative;
+          &:hover {
+            color: darken($primary, 30%);
+            background: $secondary-light;
+            &:after {
+              content: '';
+              border-bottom: 4px solid #f49512;
+              display: block;
+              position: absolute;
+              bottom: -16px;
+              width: 100%;
+              right: 0px;
+              left: 0px;
+            }
+          }
+          @media only screen and (max-width: 990px) {
+            &:hover {
+              &:after {
+                border-bottom: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.dropdown-item {
+  font-weight: 600;
+}
+.dropdown-item.active,
+.dropdown-item:active {
+  background: $secondary-light;
+  &:focus {
+    color: $primary;
+  }
+}
+.navbar-light .navbar-toggler {
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+//cover scss
+
+.cover-container {
+  background: url('./../../assets/images/cover.svg') no-repeat;
+  background-size: cover;
+  min-height: 80vh;
+}
+.converinfo {
+  &-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 80vh;
+    &__title {
+      color: white;
+      font-family: $lora;
+      font-weight: 400;
+      letter-spacing: 3.84px;
+    }
+    &__subtitle {
+      color: white;
+      font-size: 1rem;
+      font-family: $roboto;
+      letter-spacing: 1px;
+      word-spacing: 1.5px;
+      line-height: 1.5rem;
+      font-weight: 300;
+      text-align: justify;
+    }
+  }
+}
+
+//services
+
+.services-container {
+  min-height: 90vh;
+  position: relative;
+  padding: 50px 0;
+  &__highlighter {
+    background: $secondary-2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 25vw;
+    height: 100%;
+    z-index: -1;
+    box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.15);
+  }
+  &__title {
+    color: $dark;
+    font-family: $lora;
+    font-weight: 600;
+    letter-spacing: 4.96px;
+    text-transform: uppercase;
+  }
+  &__subtitle {
+    text-align: left;
+    word-spacing: 2.88px;
+    font-family: $roboto;
+    font-weight: 400;
+  }
+}
+//service card
+.services-card {
+  text-align: center;
+  background: white;
+  height: 200px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 12px #00000029;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  img{
+    width: 80px;
+  }
+  p {
+    margin-top: 10px;
+  }
+}
+//how we work
+.how-we-work{
+  &__container {
+    min-height: 70vh;
+    position: relative;
+    padding: 50px 0;
+    h1 {
+      text-align: center;
+      font-family: $lora;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    &-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+  }
+  &__card {
+    max-width: 200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    &__image-wrapper {
+      height: 150px;
+      width: 150px;
+      border-radius: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 3px 3px 28px #00000029;
+      border: 4px dashed transparent;
+      stroke-dasharray: 40px;
+      transition: all 0.8s ease-in;;
+      &:hover {
+        border: 4px dashed $secondary;
+      }
+      img {
+        width: 80px;
+      }
+    }
+    &__title {
+      text-align: center;
+      margin-top: 20px;
+      letter-spacing: 2.88px;
+      font-family: $roboto;
+      font-size: 0.88rem;
+      font-weight: bold;
+    }
+    &__details {
+      text-align: center;
+      font-size: 0.75rem;
+      font-family: $roboto;
+      width: 90%;
+      margin: 0 auto;
+      line-height: 1rem;
+      letter-spacing: 1.92px;
+    }
+  }
+}

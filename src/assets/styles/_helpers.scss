@@ -1,0 +1,27 @@
+$theme-colors: (
+        "info": $secondary,
+        "primary": $primary
+);
+
+@import "~bootstrap/scss/bootstrap";
+.btn-info,.btn-outline-info {
+  color: white;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  &:hover {
+    color: white;
+  }
+}
+
+.flex {
+  display: flex;
+}
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+.responsive-cover {
+  @media only screen and (max-width: 990px) {
+    display: none;
+  }
+}

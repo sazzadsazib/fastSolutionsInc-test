@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import dotenv from 'dotenv';
+import './assets/styles/style.scss';
+import './i18n';
 
 dotenv.config();
 

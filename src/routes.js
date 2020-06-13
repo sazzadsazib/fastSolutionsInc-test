@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Suspense} from 'react';
 import { Router } from '@reach/router';
 import store from './stores';
 import { Provider } from 'react-redux';
@@ -9,6 +9,7 @@ import NotFound from './pages/404/NotFound';
 
 const Routes = () => {
   return (
+    <Suspense fallback=''>
     <Provider store={store}>
       <PersistGate persistor={getPersistor()}>
         <Router>
@@ -17,6 +18,7 @@ const Routes = () => {
         </Router>
       </PersistGate>
     </Provider>
+    </Suspense>
   );
 };
 

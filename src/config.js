@@ -1,6 +1,6 @@
-const devUrl = 'https://v3stage-mk.getalice.ai';
-const productionUrl = 'https://live-v3.getalice.ai';
-const stagingUrl = 'https://v3stage.getalice.ai';
+const devUrl = 'https://a78jxjm1ke.execute-api.eu-west-1.amazonaws.com';
+const productionUrl = 'https://a78jxjm1ke.execute-api.eu-west-1.amazonaws.com';
+const stagingUrl = 'https://a78jxjm1ke.execute-api.eu-west-1.amazonaws.com';
 const status = 'dev';
 const url =
   status === 'production'
@@ -11,7 +11,7 @@ const url =
 
 const config = () => {
   return {
-    fetchPhone: `${url}/api/accounts/login`,
+    services: `${url}/beta/service-list`,
   };
 };
 

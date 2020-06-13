@@ -1,4 +1,4 @@
-## Ooreedo MM Webview
+## Fast Pay Website
 
 To run this project,
 

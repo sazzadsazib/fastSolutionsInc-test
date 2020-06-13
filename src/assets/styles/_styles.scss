@@ -164,15 +164,16 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  img{
+  img {
     width: 80px;
   }
   p {
     margin-top: 10px;
+    font-weight: bold;
   }
 }
 //how we work
-.how-we-work{
+.how-we-work {
   &__container {
     min-height: 70vh;
     position: relative;
@@ -205,7 +206,7 @@
       box-shadow: 3px 3px 28px #00000029;
       border: 4px dashed transparent;
       stroke-dasharray: 40px;
-      transition: all 0.8s ease-in;;
+      transition: all 0.8s ease-in;
       &:hover {
         border: 4px dashed $secondary;
       }

@@ -12,13 +12,13 @@ interface props {
 const NavbarComponent: React.FC<props> = ({ locale, updateLocale }) => {
   const { t, i18n } = useTranslation();
 
-  const changeLanguage = (lang:string) => {
+  const changeLanguage = (lang: string) => {
     updateLocale(lang);
     i18n.changeLanguage(lang);
   };
 
   return (
-    <Navbar className='navbar-main' expand='lg' sticky="top">
+    <Navbar className='navbar-main' expand='lg' sticky='top'>
       <Container>
         <Navbar.Brand href='/'>
           <img src={Logo} alt={'logo'} />
@@ -27,10 +27,10 @@ const NavbarComponent: React.FC<props> = ({ locale, updateLocale }) => {
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='ml-auto'>
             <Nav.Link href='#home'>{t('nav-home')}</Nav.Link>
-            <Nav.Link href='#link'>{t('nav-about-us')}</Nav.Link>
-            <Nav.Link href='#link'>{t('nav-services')}</Nav.Link>
-            <Nav.Link href='#link'>{t('nav-portfolio')}</Nav.Link>
-            <Nav.Link href='#link'>{t('nav-contact-us')}</Nav.Link>
+            <Nav.Link href='#about'>{t('nav-about-us')}</Nav.Link>
+            <Nav.Link href='#services'>{t('nav-services')}</Nav.Link>
+            <Nav.Link href='#portfolio'>{t('nav-portfolio')}</Nav.Link>
+            <Nav.Link href='#contact'>{t('nav-contact-us')}</Nav.Link>
             <NavDropdown
               title={
                 <span>

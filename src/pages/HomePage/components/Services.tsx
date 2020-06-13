@@ -13,7 +13,7 @@ interface props {
 
 const Services: React.FC<props> = ({ data }) => {
   return (
-    <div className='services-container'>
+    <div className='services-container' id='services'>
       <div className='services-container__highlighter' />
       <Container>
         <h1 className='services-container__title'>Services</h1>

@@ -1,4 +1,8 @@
 @import 'colors';
+//scroll behavior
+html {
+  scroll-behavior: smooth;
+}
 
 //loader
 
@@ -26,6 +30,7 @@
 .navbar-main {
   background: $secondary-light;
   position: relative;
+  padding: 10px;
   .container {
     .navbar-brand {
       img {
@@ -93,7 +98,7 @@
 .cover-container {
   background: url('./../../assets/images/cover.svg') no-repeat;
   background-size: cover;
-  min-height: 80vh;
+  min-height: 90vh;
 }
 .converinfo {
   &-container {
@@ -101,7 +106,7 @@
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    min-height: 80vh;
+    min-height: 90vh;
     &__title {
       color: white;
       font-family: $lora;
@@ -281,11 +286,11 @@
 .project-carousel {
   background: white;
   width: 100%;
-  min-height: 400px;
   box-shadow: 5px 3px 10px #00000029;
   border-radius: 20px;
   margin: 30px auto 10px;
-  height: 450px;
+  min-height: 400px;
+  padding: 50px;
   &__title {
     font-family: $lora;
   }
@@ -329,7 +334,7 @@
 }
 
 .feedback-container {
-  padding: 20px 30px;
+  padding: 20px 30px 50px;
   &__title {
     font-family: $lora;
     font-size: 2rem;
@@ -381,6 +386,119 @@
     opacity: 0.8;
     &:hover {
       opacity: 1;
+    }
+  }
+}
+.get-in-touch {
+  &__container {
+    padding: 40px 0px;
+    background: $secondary-light;
+  }
+  &__title {
+    letter-spacing: 3.84px;
+    font-family: $lora;
+    font-weight: 500;
+    color: $primary;
+    font-size: 2rem;
+  }
+  &__subtitle {
+    letter-spacing: 1.84px;
+    font-family: $lora;
+    color: $primary;
+    font-size: 0.88rem;
+    line-height: 2rem;
+  }
+  &__c2a-button {
+    width: 230px;
+    cursor: pointer;
+    transition: all 0.5s ease-in;
+    transform: scale(1);
+    box-shadow: 0px 0px 5px rgba(244, 149, 18, 0.57);
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+//footer
+
+.footer {
+  &__container {
+    background: $primary-dark;
+    color: white;
+    padding: 80px 0 50px;
+  }
+  &__logo {
+    width: 400px;
+  }
+  &__subtitle {
+    font-size: 0.65rem;
+    color: white;
+    text-align: left;
+    font-style: Italic;
+    font-family: $roboto;
+    letter-spacing: 4.05px;
+    margin-top: 10px;
+  }
+  &__social-links {
+    display: flex;
+    margin-top: 20px;
+    justify-content: flex-start;
+    @media only screen and (max-width: 720px) {
+      justify-content: center;
+    }
+    width: 100%;
+    li {
+      margin-right: 1rem;
+      margin-left: 1rem;
+      cursor: pointer;
+    }
+  }
+  &__nav-header {
+    font-weight: bold;
+    font-family: $lora;
+    font-size: 1rem;
+    border-bottom: 3px solid $secondary;
+    color: white;
+    padding-bottom: 20px;
+    @media only screen and (max-width: 720px) {
+      margin-top: 50px;
+    }
+  }
+  &__nav-list {
+    a {
+      color: white;
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+}
+//sticky
+.sticky-scroll-to-top {
+  &__button {
+    background: white;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    img {
+      width: 30px;
+    }
+    p {
+      margin: 5px 0 0 0;
+      padding: 0;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-family: $roboto;
+      font-weight: 500;
     }
   }
 }

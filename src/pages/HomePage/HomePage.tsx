@@ -8,6 +8,9 @@ import HowWeWork from './components/HowWeWork';
 import Projects from './components/Projects';
 import Clients from './components/Clients';
 import Feedback from './components/Feedback';
+import GetInTouch from './components/GetInTouch';
+import Footer from './Footer';
+import StickyTop from './components/StickyTop';
 
 interface services {
   title: string;
@@ -65,6 +68,7 @@ const HomePage: React.FC<props> = ({
   feedback,
 }) => {
   const [loader, setLoader] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
   //this is initial loader but main loader comes from redux plugin If we dont use it loader will start from false true false.
 
   useEffect(() => {
@@ -73,13 +77,45 @@ const HomePage: React.FC<props> = ({
     fetchClient();
     fetchFeedback();
     //this is your component did mount
-
     setLoader(false);
+    window.addEventListener('scroll', () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+      const scrolled = (winScroll / height) * 100;
+
+      if (scrolled > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    });
+    return window.removeEventListener('scroll', () => {
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+      const scrolled = (winScroll / height) * 1000;
+
+      if (scrolled > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    });
+
     // eslint-disable-next-line
   }, []);
 
   return (
-    <div>
+    <div id='home'>
       {(loader || globalLoader) && <Loader />}
       {/*locale used for translation*/}
       <NavbarComponent locale={locale} updateLocale={updateLocale} />
@@ -89,7 +125,9 @@ const HomePage: React.FC<props> = ({
       <Projects data={projects} />
       <Clients data={clients} />
       <Feedback data={feedback} />
-      <div>rest of the things</div>
+      <GetInTouch />
+      <Footer />
+      {isScrolled && <StickyTop />}
     </div>
   );
 };

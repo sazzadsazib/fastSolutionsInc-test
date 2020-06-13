@@ -1,10 +1,11 @@
 $theme-colors: (
-        "info": $secondary,
-        "primary": $primary
+  'info': $secondary,
+  'primary': $primary,
 );
 
-@import "~bootstrap/scss/bootstrap";
-.btn-info,.btn-outline-info {
+@import '~bootstrap/scss/bootstrap';
+.btn-info,
+.btn-outline-info {
   color: white;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
@@ -24,4 +25,22 @@ $theme-colors: (
   @media only screen and (max-width: 990px) {
     display: none;
   }
+}
+.w-100p {
+  width: 100%;
+}
+.h-100p {
+  height: 100%;
+}
+.mt-30px {
+  margin-top: 30px;
+}
+.opacity-none {
+  opacity: 0;
+}
+.opacity-one {
+  opacity: 1;
+}
+.mb-20px {
+  margin-bottom: 20px;
 }

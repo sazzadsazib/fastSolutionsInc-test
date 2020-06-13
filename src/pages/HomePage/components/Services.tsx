@@ -1,17 +1,17 @@
 import React from 'react';
-import { Container,Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import ServicesCard from './Fragments/ServicesCard';
 
 interface services {
-    title: string;
-    logo: string;
+  title: string;
+  logo: string;
 }
 
 interface props {
-    data: services[]
+  data: services[];
 }
 
-const Services: React.FC<props> = ({data}) => {
+const Services: React.FC<props> = ({ data }) => {
   return (
     <div className='services-container'>
       <div className='services-container__highlighter' />
@@ -24,9 +24,21 @@ const Services: React.FC<props> = ({data}) => {
           rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
           ipsum dolor sit.
         </p>
-          <br/>
+        <br />
         <Row>
-            {data?.length > 0 && data?.map((service,key)=><ServicesCard key={key} title={service.title} logo={service.logo}/>)}
+          {data?.length > 0 &&
+            data?.map((service, key) => (
+              <ServicesCard
+                key={key}
+                title={service.title}
+                logo={service.logo}
+              />
+            ))}
+          {data?.length === 0 && (
+            <p className='services-container__subtitle'>
+              No Services Available
+            </p>
+          )}
         </Row>
       </Container>
     </div>

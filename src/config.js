@@ -12,6 +12,9 @@ const url =
 const config = () => {
   return {
     services: `${url}/beta/service-list`,
+    projects: `${url}/beta/our-projects`,
+    clients: `${url}/beta/our-clients`,
+    feedback: `${url}/beta/client-feedbacks`,
   };
 };
 

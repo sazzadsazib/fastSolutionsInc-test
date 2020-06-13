@@ -5,6 +5,9 @@ import CoverContent from './components/CoverContent';
 import Services from './components/Services';
 import Loader from '../../component/Loader';
 import HowWeWork from './components/HowWeWork';
+import Projects from './components/Projects';
+import Clients from './components/Clients';
+import Feedback from './components/Feedback';
 
 interface services {
   title: string;
@@ -15,7 +18,23 @@ interface howWeWorkProps {
   title: string;
   details: string;
 }
-
+interface projectsProps {
+  title: string;
+  illustration: string;
+  description: string;
+}
+interface clientsProps {
+  id: number;
+  logo: string;
+}
+interface feedbackProps {
+  id: number;
+  client_name: string;
+  client_designation: string;
+  business_name: string;
+  client_photo: string;
+  feedback: string;
+}
 interface props {
   locale: string;
   updateLocale: (locale: string) => void;
@@ -23,6 +42,12 @@ interface props {
   globalLoader: boolean;
   services: services[];
   howWeWorkData: howWeWorkProps[];
+  fetchProjects: () => void;
+  projects: projectsProps[];
+  fetchClient: () => void;
+  clients: clientsProps[];
+  fetchFeedback: () => void;
+  feedback: feedbackProps[];
 }
 
 const HomePage: React.FC<props> = ({
@@ -32,12 +57,21 @@ const HomePage: React.FC<props> = ({
   globalLoader,
   services,
   howWeWorkData,
+  fetchProjects,
+  projects,
+  fetchClient,
+  clients,
+  fetchFeedback,
+  feedback,
 }) => {
   const [loader, setLoader] = useState(true);
   //this is initial loader but main loader comes from redux plugin If we dont use it loader will start from false true false.
 
   useEffect(() => {
     fetchServices();
+    fetchProjects();
+    fetchClient();
+    fetchFeedback();
     //this is your component did mount
 
     setLoader(false);
@@ -51,7 +85,10 @@ const HomePage: React.FC<props> = ({
       <NavbarComponent locale={locale} updateLocale={updateLocale} />
       <CoverContent />
       <Services data={services} />
-      <HowWeWork data={howWeWorkData}/>
+      <HowWeWork data={howWeWorkData} />
+      <Projects data={projects} />
+      <Clients data={clients} />
+      <Feedback data={feedback} />
       <div>rest of the things</div>
     </div>
   );
@@ -62,10 +99,16 @@ const mapState = (state: any) => ({
   globalLoader: state.loading.global,
   services: state.homepage.services,
   howWeWorkData: state.homepage.howWeWorkData,
+  projects: state.homepage.projects,
+  clients: state.homepage.clients,
+  feedback: state.homepage.feedback,
 });
 const mapDispatch = (dispatch: any) => ({
   updateLocale: (payload: string) => dispatch.homepage.updateLocale(payload),
   fetchServices: () => dispatch.homepage.fetchServices(),
+  fetchProjects: () => dispatch.homepage.fetchProjects(),
+  fetchClient: () => dispatch.homepage.fetchClient(),
+  fetchFeedback: () => dispatch.homepage.fetchFeedback(),
 });
 const HomePageContainer = connect(mapState, mapDispatch)(HomePage);
 
